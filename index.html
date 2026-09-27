@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>待办事项</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233b6ef5'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1 class="app__title">待办事项</h1>
+      <p class="app__summary" id="summary" aria-live="polite">还没有任务</p>
+    </header>
+
+    <form class="composer" id="composer" autocomplete="off">
+      <label class="visually-hidden" for="new-todo">新任务内容</label>
+      <input
+        class="composer__input"
+        id="new-todo"
+        name="text"
+        type="text"
+        maxlength="200"
+        placeholder="想做点什么？按回车添加"
+        required>
+      <button class="composer__submit" type="submit">添加</button>
+    </form>
+
+    <div class="toolbar">
+      <div class="filters" role="group" aria-label="筛选任务">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button class="filter" type="button" data-filter="active" aria-pressed="false">未完成</button>
+        <button class="filter" type="button" data-filter="completed" aria-pressed="false">已完成</button>
+      </div>
+      <button class="link-button" id="clear-completed" type="button">清除已完成</button>
+    </div>
+
+    <ul class="todo-list" id="todo-list"></ul>
+
+    <p class="empty-state" id="empty-state">列表还是空的，先添加一条吧。</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
